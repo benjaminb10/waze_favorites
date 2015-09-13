@@ -1,8 +1,8 @@
 <section>
-	<nav class="navbar navbar-light" style="background-color: inherit;">
+	<nav class="navbar navbar-dark bg-success">
 		<div class="container">
 		  <a class="navbar-brand" href="#">Waze Favorites</a>
-		  <ul class="nav navbar-nav">
+			<ul class="nav navbar-nav pull-right">
 		    <li class="nav-item active">
 		      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
 		    </li>
@@ -16,11 +16,21 @@
 		      <a class="nav-link" href="#">About</a>
 		    </li>
 		  </ul>
-		  <form class="form-inline navbar-form pull-right">
-		    <input class="form-control" type="text" placeholder="Search">
-		    <button class="btn btn-success-outline" type="submit">Search</button>
-		  </form>
 		</nav>
+	</div>
+
+	<div class="">
+		<div class="jumbotron jumbotron-fluid bg-success">
+			<div class="container">			
+			  <h1 class="display-4">Everyday rides estimated</h1>
+			  <p class="lead">
+			  	Know how long time you rides will take,
+			  	<small>based on <a href="">Waze <%= fa_icon "external-link" %></a> unofficial API</small>
+			  </p>
+			  <a class="btn btn-primary btn-lg" href="#" role="button">Estimate a ride now</a>
+			</div>
+			<div class="m-b-md"></div>
+		</div>
 	</div>
 </section>
 
