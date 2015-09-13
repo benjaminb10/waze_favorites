@@ -18,4 +18,5 @@ group :development, :test do
 end
 
 gem 'holder_rails'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+gem 'httparty'
