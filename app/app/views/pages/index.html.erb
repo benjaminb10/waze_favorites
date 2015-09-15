@@ -39,11 +39,11 @@
 		<div class="row">
 			<div class="col-sm-4">
 				<div class="card card-block">
-				  <h4 class="card-title">45 min</h4>
+				  <h4 class="card-title"><%= @response %> min</h4>
 				  <p class="card-text">
-					  <%= fa_icon "map-marker" %> A: 85 rue Chaptal, Levallois-Perret
+					  <%= fa_icon "map-marker" %> A: <%= @departure %>
 				 	 	<br/>
-				 	 	<%= fa_icon "map-marker" %> B: Yakarouler, Thiais
+				 	 	<%= fa_icon "map-marker" %> B: <%= @arrivate %>
 				 	</p>
 				  <a href="#" class="card-link">Reverse order</a>
 				  <a href="#" class="card-link">Recalculate</a>
@@ -59,10 +59,10 @@
 			</div>
 			<div class="col-sm-4">
 				<div class="card card-block">
-				  <h4 class="card-title">45 min</h4>
+				  <h4 class="card-title"><%= @response %> min</h4>
 				  <p class="card-text">
-					  A: 85 rue Chaptal, Levallois-Perret
-				 	 	<br/>B: Yakarouler, Thiais
+					  A: <%= @departure %>
+				 	 	<br/>B: <%= @arrivate %>
 				 	</p>
 				  <a href="#" class="card-link">Card link</a>
 				  <a href="#" class="card-link">Another link</a>
@@ -83,5 +83,11 @@
 	</div>
 </section>
 
-<%= @response.parsed_response["routes"][0]["routeDurationInMinutes"] %><hr>	
+<%= form_tag :pages_index do %>
+  <%= text_field_tag "departure", "departure" %>
+  <%= text_field_tag "arrivate", "arrivate" %>
+  <%= submit_tag "calculate" %>
+<% end %>
+
+<%= @response %><hr>
 
