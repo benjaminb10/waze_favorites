@@ -1,0 +1,93 @@
+<section>
+	<nav class="navbar navbar-dark bg-success">
+		<div class="container">
+		  <a class="navbar-brand" href="#">Waze Favorites</a>
+			<ul class="nav navbar-nav pull-right">
+		    <li class="nav-item active">
+		      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Features</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Pricing</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">About</a>
+		    </li>
+		  </ul>
+		</nav>
+	</div>
+
+	<div class="">
+		<div class="jumbotron jumbotron-fluid bg-success">
+			<div class="container">			
+			  <h1 class="display-4">Everyday rides estimated</h1>
+			  <p class="lead">
+			  	Know how long time you rides will take,
+			  	<small>based on <a href="">Waze <%= fa_icon "external-link" %></a> unofficial API</small>
+			  </p>
+			  <a class="btn btn-primary btn-lg" href="#" role="button">Estimate a ride now</a>
+			</div>
+			<div class="m-b-md"></div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="card card-block">
+				  <h4 class="card-title"><%= eval(@search.description)["routes"][0]["routeDurationInMinutes"] %> min</h4>
+				  <p class="card-text">
+					  <%= fa_icon "map-marker" %> A: <%= eval(@search.description)["startPoint"] %>
+				 	 	<br/>
+				 	 	<%= fa_icon "map-marker" %> B: <%= eval(@search.description)["endPoint"] %>
+				 	</p>
+				  <a href="#" class="card-link">Reverse order</a>
+				  <a href="#" class="card-link">Recalculate</a>
+				  <br/>
+				  <small>
+					  <a href="#" class="card-link">Waze <%= fa_icon "external-link" %></a>
+					  <a href="#" class="card-link">Maps <%= fa_icon "external-link" %></a>
+					  <a href="#" class="card-link">Plan <%= fa_icon "external-link" %></a>
+					</small>
+				  <p class="card-text text-right"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="card card-block">
+				  <h4 class="card-title"><%= @response %> min</h4>
+				  <p class="card-text">
+					  A: <%= @departure %>
+				 	 	<br/>B: <%= @arrivate %>
+				 	</p>
+				  <a href="#" class="card-link">Card link</a>
+				  <a href="#" class="card-link">Another link</a>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="card card-block">
+				  <h4 class="card-title">Add a favorite</h4>
+				  <p class="card-text">
+					  A: <a href="">edit departure</a>
+				 	 	<br/>B: <a href="">edit arrivate</a>
+				 	</p>
+				  <a href="#" class="card-link">Card link</a>
+				  <a href="#" class="card-link">Another link</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<%= form_tag :pages_index do %>
+  <%= text_field_tag "departure", "departure" %>
+  <%= text_field_tag "arrivate", "arrivate" %>
+  <%= submit_tag "calculate" %>
+<% end %>
+
+<%= @response %><hr>
+

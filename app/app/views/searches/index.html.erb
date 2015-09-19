@@ -1,0 +1,56 @@
+<section>
+	<nav class="navbar navbar-dark bg-success">
+		<div class="container">
+		  <a class="navbar-brand" href="#">Waze Favorites</a>
+			<ul class="nav navbar-nav pull-right">
+		    <li class="nav-item active">
+		      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Features</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Pricing</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">About</a>
+		    </li>
+		  </ul>
+		</nav>
+	</div>
+</section>
+
+<section class="m-t">
+	<div class="container">
+		<div class="row">
+			<% @searches.each do |search| %>
+				<div class="col-sm-3">
+					<div class="card">
+						<div class="card-block">
+						  <span class="h4 card-title"><%= search.duration %> min
+						  	<br/>
+						  	<small class="h6 text-muted">
+						   		Last update <%= time_ago_in_words(search.updated_at) %> ago
+						   	</small>
+						  </h4>
+					 </div>
+					  <ul class="list-group list-group-flush">
+					    <li class="list-group-item"><%= fa_icon "map-marker" %> A: <%= search.start_point %></li>
+					    <li class="list-group-item"><%= fa_icon "map-marker" %> B: <%= search.end_point %></li>
+					  </ul>
+					  <div class="card-block">
+						  <a href="#" class="card-link">Reverse order</a>
+						  <a href="#" class="card-link">Recalculate</a>
+						  <br/>
+						  <small>
+							  <a href="#" class="card-link">Waze <%= fa_icon "external-link" %></a>
+							  <a href="#" class="card-link">Maps <%= fa_icon "external-link" %></a>
+							  <a href="#" class="card-link">Plan <%= fa_icon "external-link" %></a>
+							</small>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</section>
