@@ -22,3 +22,4 @@ end
 gem 'holder_rails'
 gem 'font-awesome-rails'
 gem 'httparty'
+gem 'paper_trail', '~> 4.0.0'

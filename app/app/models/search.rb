@@ -1,4 +1,5 @@
 class Search < ActiveRecord::Base
+	has_paper_trail
 	store_accessor :description
 
 	def duration
